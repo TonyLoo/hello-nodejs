@@ -1,29 +1,18 @@
-// give us your http
+var express = require('express');
+var app = express();
 
-var http = require('http');
+app.set('port', (process.env.PORT || 5000));
 
- 
+app.use(express.static(__dirname + '/public'));
 
-// Make us a server with that http
+// views is directory for all template files
+//app.set('views', __dirname + '/views');
+//app.set('view engine', 'ejs');
 
-http.createServer(function(request, response) {
+app.get('/', function(request, response) {
+  response.end("Hello Word!");
+});
 
-
-// We're 200… OK 
-
-    response.writeHead(200);
-
-
-// Achievement unlocked!
-
-    response.write('Hello OSF interns!');
-
-// End mission
-
-    response.end();
-
-}).listen(80);
-
-// Let us know you are working
-
-console.log('Listening on port 8080…');
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
