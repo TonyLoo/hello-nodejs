@@ -10,7 +10,7 @@ app.use(express.static(__dirname + '/public'));
 //app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.end("Hello Word!  Hi there!");
+  response.end("Hello Word!  Hi there! ");
 });
 
 app.listen(app.get('port'), function() {
